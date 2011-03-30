@@ -346,6 +346,12 @@ sub task_expire {
                     my $entry = $rebuild_queue{$id};
                     $mt->rebuild_entry( Entry => $entry, Blog => $blog )
                       or die $mt->errstr;
+
+                    $mt->publisher->remove_entry_archive_file(
+                        Entry       => $entry,
+                        ArchiveType => 'Individual',
+                        )
+                      or die $mt->errstr;
                     $rebuilt_okay{$id} = 1;
                     $rebuilt++;
                 }

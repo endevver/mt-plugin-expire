@@ -210,7 +210,9 @@ sub pre_save {
     my $date = trim( $app->param('expire_on_date') );
     my $time = trim( $app->param('expire_on_time') );
 
-    if ( !$date || !$time || $date eq '' || $time eq '' ) {
+    # Check for a date value. If none is set, just give up; this entry isn't
+    # supposed to expire.
+    if ( !$date || $date eq '' ) {
         $obj->expire_on(undef);
         return 1;
     }
@@ -224,6 +226,14 @@ sub pre_save {
         );
     }
 
+    # Set the time if it's unset. If the user has selected a date for
+    # expiration but has forgotten a time, we can help by just setting a
+    # default value.
+    if (!$time || $time eq '') {
+        $time = '00:00:00';
+    }
+
+    # Assemble the date and time to build a time stamp.
     my $eod = $date . " " . $time;
 
     unless ( $eod =~

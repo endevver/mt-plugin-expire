@@ -215,7 +215,6 @@ sub pre_save {
         return 1;
     }
 
-    my $error;
     if ( $date eq '0000-00-00' ) {
         return $app->error(
             $app->translate(

@@ -100,7 +100,7 @@ sub xfrm_list {
     my ( $cb, $app, $tmpl ) = @_;
     my $slug;
     $slug = <<END_TMPL;
-<link rel="stylesheet" type="text/css" href="<mt:StaticWebPath>plugins/ExpiredEntries/app.css" />
+<link rel="stylesheet" type="text/css" href="<mt:PluginStaticWebPath component="expiredentries">plugins/ExpiredEntries/app.css" />
 END_TMPL
     $$tmpl =~ s{(<mt:setvarblock name="html_head" append="1">)}{$1 $slug}msgi;
 

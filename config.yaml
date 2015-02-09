@@ -1,10 +1,11 @@
-id: ExpiredEntries
-name: Expired Entries
-description: 'This plugin allows authors and administrators to specify a date and time at which point an entry will expire and be automatically unpublished from a web site.'
-plugin_author: 'Endevver, LLC.'
-plugin_link: 'http://endevver.com/products/'
+id:             ExpiredEntries
+name:           Expired Entries
+description:    This plugin allows authors and administrators to specify a date and time at which point an entry will expire and be automatically unpublished from a web site.
+plugin_author:  Endevver, LLC.
+plugin_link:    http://endevver.com/
 schema_version: 1
-version: 1.0.10
+static_version: 1
+version:        v1.1.0
 
 config_settings:
   ExpirePostFrequency:
